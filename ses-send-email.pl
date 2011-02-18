@@ -89,6 +89,7 @@ sub prepare_raw_params {
             $params{'Destinations.member.'.($i+1)}             = $opt_t[$i];
         }
     }
+    $opts{'m'}                                                 =~ s/Auto-Submitted:[^\n]*\n//;
     $params{'RawMessage.Data'}                                 = encode_base64($opts{'m'});
     $params{'Action'}                                          = 'SendRawEmail';
 }
