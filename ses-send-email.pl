@@ -81,7 +81,7 @@ sub read_message {
 # Prepare the parameters for the SendRawEmail service call.
 sub prepare_raw_params {
     if ($opts{'f'}) {
-        $params{'Source'}                                      = $opts{'f'};
+        $params{'Source'}                                      = lc($opts{'f'});
     }
     if ($opts{'t'}) {
 	my @opt_t = @{$opts{'t'}};
