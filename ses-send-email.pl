@@ -97,7 +97,7 @@ sub prepare_raw_params {
 
 # Prepare the parameters for the SendEmail service call.
 sub prepare_simple_params {
-    $params{'Source'}                                          = $opts{'f'};
+    $params{'Source'}                                          = lc($opts{'f'});
     my @opt_t = @{$opts{'t'}};
     for (my $i = 0; $i <= $#opt_t; $i++) {
         $params{'Destination.ToAddresses.member.'.($i+1)}      = $opt_t[$i];
