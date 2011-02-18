@@ -1,0 +1,15 @@
+nst-ses is a fork of the Amazon Simple Email Service developer tools,
+developed and maintained by Mahmoud Al-Qudsi <mqudsi@neosmart.net> of
+NeoSmart Technologies <http://neosmart.net/>
+
+The original Amazon SES framework can be downloaded at
+http://aws.amazon.com/developertools/Amazon-SES/8945574369528337
+
+Improvements:
+
+* All "From:" email addresses are converted to lower case. SES
+verification of emails is case-sensitive, and multiple permutations of
+the same email must be individually verified.
+
+* Removes "Auto-Submitted" header (RFC 3834), which many webapps will
+prepend to emails though it is not supported by Amazon SES.
