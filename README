@@ -14,7 +14,7 @@ the same email must be individually verified.
 * Removes any email headers not supported by Amazon SES. These include
 things like "Auto-Submitted" header (RFC 3834), which many webapps will
 prepend to emails though it is not supported by Amazon SES. See
-<http://j.mp/SesHeaders> for full list of supported headers
+http://j.mp/SesHeaders for full list of supported headers.
 
 * Removes any duplicate incoming headers. SES will header out if some of
 the important keys are duplicated.
