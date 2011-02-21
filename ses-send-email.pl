@@ -89,8 +89,18 @@ sub prepare_raw_params {
             $params{'Destinations.member.'.($i+1)}             = $opt_t[$i];
         }
     }
-    $opts{'m'}                                                 =~ s/Auto-Submitted:[^\n]*\n//;
-    $params{'RawMessage.Data'}                                 = encode_base64($opts{'m'});
+    
+    # Remove unsupported message headers
+    my($email) = Mail::Message->read($opts{'m'});
+    $email->head->removeFieldsExcept(@SES::valid_headers);
+
+	# Coalesce duplicate message headers
+	for my $h ($email->head->orderedFields())
+	{
+		$email->head->set($h->Name, $email->head->get($h->name));
+	}
+	
+	$params{'RawMessage.Data'}                                 = encode_base64($email->string);
     $params{'Action'}                                          = 'SendRawEmail';
 }
 
