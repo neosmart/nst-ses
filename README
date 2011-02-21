@@ -16,11 +16,11 @@ things like "Auto-Submitted" header (RFC 3834), which many webapps will
 prepend to emails though it is not supported by Amazon SES. See
 http://j.mp/SesHeaders for full list of supported headers.
 
-* Removes any duplicate incoming headers. SES will error out if certain keys
-are duplicated (e.g. Subject, MIME-Version, etc).
+* Removes any duplicate incoming headers. SES will error out if certain
+keys are duplicated (e.g. Subject, MIME-Version, etc).
 
 To-Do:
 
 * Check if there are any email headers that *may* be safely duplicated
-without triggering an SES error, instead of indiscriminately de-duplicating
-everything.
+without triggering an SES error, instead of indiscriminately
+de-duplicating everything.
