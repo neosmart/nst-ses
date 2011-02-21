@@ -43,7 +43,7 @@ our $aws_email_ns = "http://ses.amazonaws.com/doc/$service_version/";
 my $unsafe_characters = "^A-Za-z0-9\-\._~";
 
 # Headers accepted by Amazon
-# See http://docs.amazonwebservices.com/ses/latest/DeveloperGuide/index.html?AppendixHeaders.html
+# See http://j.mp/SesHeaders
 our @valid_headers = ("Accept-Language", "Bcc", "Cc", "Comments", "Content-Type", "Content-Transfer-Encoding", "Content-ID", "Content-Description", "Content-Disposition", "Content-Language", "Date", "DKIM-Signature", "DomainKey-Signature", "From", "In-Reply-To", "Keywords", "List-Archive", "List-Help", "List-Owner", "List-Post", "List-Subscribe", "List-Unsubscribe", "Message-Id", "MIME-Version", "Received", "References", "Reply-To", "Return-Path", "Sender", "Subject", "Thread-Index", "Thread-Topic", "To", "User-Agent", "X-");
 
 
