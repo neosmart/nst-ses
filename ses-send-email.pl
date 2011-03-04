@@ -97,7 +97,17 @@ sub prepare_raw_params {
 	# Coalesce duplicate message headers
 	for my $h ($email->head->orderedFields())
 	{
-		$email->head->set($h->Name, $email->head->get($h->name));
+		# Convert From: email address to lower-case
+		if($h->name =~ m/From/i) {
+            if($email->head->get($h->name) =~ m/([^<]+)(<[^>]+>)/ ) {
+                $email->head->set($h->Name, $1 . lc($2));
+            }
+            else {
+                $email->head->set($h->Name, lc($email->head->get($h->name)));
+            }	
+		}
+		else {
+			$email->head->set($h->Name, $email->head->get($h->name));
 	}
 	
 	$params{'RawMessage.Data'}                                 = encode_base64($email->string);
