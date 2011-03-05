@@ -99,7 +99,7 @@ sub prepare_raw_params {
 	{
 		# Convert From: email address to lower-case
 		if($h->name =~ m/From/i) {
-            if($email->head->get($h->name) =~ m/([^<]+)(<[^>]+>)/ ) {
+            if($email->head->get($h->name) =~ m/([^<]*)(<[^>]+>)/ ) {
                 $email->head->set($h->Name, $1 . lc($2));
             }
             else {
