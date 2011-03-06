@@ -108,6 +108,7 @@ sub prepare_raw_params {
 		}
 		else {
 			$email->head->set($h->Name, $email->head->get($h->name));
+		}
 	}
 	
 	$params{'RawMessage.Data'}                                 = encode_base64($email->string);
